@@ -1,76 +1,71 @@
 package com.sdc.controller;
 
-import org.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import java.io.BufferedReader;
-import java.io.IOException;
-
-import org.json.JSONObject;
-import java.text.ParseException;
 
 
 
 @Controller
-@RequestMapping("/hi")
+@RequestMapping("/movie")
 public class Training {
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody App getMethod() {
+    public @ResponseBody Movie getMethod() {
 
-        App app = new App();
-        app.setMethod("Metodo Usado: GET");
+        Movie movie = new Movie();
+        movie.setName("Sherlock Holmes");
 
-        return app;
+        return movie;
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String postMethod(@RequestBody App json, ModelMap model) {
+    public String postMethod(@RequestBody Movie json, ModelMap model) {
 
-        model.addAttribute("message", "method:" + json.getMethod());
+        model.addAttribute("message", "name:" + json.getName());
         return "hello";
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public @ResponseBody App putMethod() {
+    public @ResponseBody
+    Movie putMethod() {
 
-        App app = new App();
-        app.setMethod("Metodo Usado: PUT");
+        Movie movie = new Movie();
+        movie.setName("Sherlock Holmes");
 
-        return app;
+        return movie;
     }
 
     @RequestMapping(method = RequestMethod.DELETE)
-    public @ResponseBody App deleteMethod() {
+    public @ResponseBody
+    Movie deleteMethod() {
 
-        App app = new App();
-        app.setMethod("Metodo Usado: DELETE");
+        Movie movie = new Movie();
+        movie.setName("Sherlock Holmes");
 
-        return app;
+        return movie;
     }
 
     @RequestMapping(method = RequestMethod.HEAD)
-    public @ResponseBody App headMethod() {
+    public @ResponseBody
+    Movie headMethod() {
 
-        App app = new App();
-        app.setMethod("Metodo Usado: HEAD");
+        Movie movie = new Movie();
+        movie.setName("Sherlock Holmes");
 
-        return app;
+        return movie;
     }
 
     @RequestMapping(method = RequestMethod.OPTIONS)
-    public @ResponseBody App optionsMethod() {
+    public @ResponseBody
+    Movie optionsMethod() {
 
-        App app = new App();
-        app.setMethod("Metodo Usado: OPTIONS");
+        Movie movie = new Movie();
+        movie.setName("Sherlock Holmes");
 
-        return app;
+        return movie;
     }
 }
