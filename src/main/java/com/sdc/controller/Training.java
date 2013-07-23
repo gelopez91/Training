@@ -2,33 +2,32 @@ package com.sdc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Controller
-@RequestMapping("/movie")
 public class Training {
-    @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody Movie getMethod() {
 
-        Movie movie = new Movie();
-        movie.setName("Sherlock Holmes");
+    @Autowired
+    private MovieService movieService;
 
-        return movie;
+    @RequestMapping(value="/movie/{movieId}", method = RequestMethod.GET)
+    public @ResponseBody Movie getMethod(@PathVariable Long movieId) {
+
+        return movieService.getMovie(movieId);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="/actor", method = RequestMethod.POST)
     public String postMethod(@RequestBody Movie json, ModelMap model) {
 
-        model.addAttribute("message", "name:" + json.getName());
-        return "hello";
+        String response = movieService.addMovie(json);
+
+        model.addAttribute("message", response);
+        return "response";
     }
 
+    /*
     @RequestMapping(method = RequestMethod.PUT)
     public @ResponseBody
     Movie putMethod() {
@@ -67,5 +66,5 @@ public class Training {
         movie.setName("Sherlock Holmes");
 
         return movie;
-    }
+    } */
 }

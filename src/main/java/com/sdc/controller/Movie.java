@@ -1,13 +1,49 @@
 package com.sdc.controller;
 
+import javax.persistence.*;
+import java.util.Set;
+
+@Entity
+@Table(name="movie")
 public class Movie {
 
-    String name;
-    String description;
-    String direction;
-    String year;
-    String language;
-    String duration;
+    @Id
+    @Column(name="movie_id")
+    @GeneratedValue(strategy=GenerationType.AUTO, generator="movie_seq")
+    @SequenceGenerator(name="movie_seq", sequenceName="movie_movie_id_seq")
+    private Long id;
+
+    @Column(name="name")
+    private String name;
+
+    @Column(name="description")
+    private String description;
+
+    @Column(name="direction")
+    private String direction;
+
+    @Column(name="year")
+    private String year;
+
+    @Column(name="language")
+    private String language;
+
+    @Column(name="duration")
+    private String duration;
+
+    @OneToMany(mappedBy="movie")
+    private Set<Actor> actors;
+
+    public Movie(){
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long newId) {
+       id = newId;
+    }
 
     public String getName(){
         return name;
@@ -22,7 +58,7 @@ public class Movie {
     }
 
     public void setDescription(String newDescription){
-        name = newDescription;
+        description = newDescription;
     }
 
     public String getDirection(){
@@ -30,7 +66,7 @@ public class Movie {
     }
 
     public void setDirection(String newDirection){
-        name = newDirection;
+        direction = newDirection;
     }
 
     public String getYear(){
@@ -56,4 +92,13 @@ public class Movie {
     public void setDuration(String newDuration){
         duration = newDuration;
     }
+
+    public Set<Actor> getActors(){
+        return actors;
+    }
+
+    public void setActors(Set<Actor> newActors){
+        actors = newActors;
+    }
 }
+
