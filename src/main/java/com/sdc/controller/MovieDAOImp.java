@@ -26,9 +26,9 @@ public class MovieDAOImp implements MovieDAO {
     }
 
     @Transactional (propagation = Propagation.REQUIRED)
-    public String addMovie(Movie movie){
+    public String addActor(Actor actor){
         try {
-            getEntityManager().persist(movie);
+            getEntityManager().persist(actor);
             return "Exito";
         }
         catch (Exception e){

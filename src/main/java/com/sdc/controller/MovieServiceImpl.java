@@ -16,7 +16,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Transactional (propagation = Propagation.REQUIRED)
-    public String addMovie(Movie movie){
-        return movieDAO.addMovie(movie);
+    public String addActor(Actor actor){
+        return movieDAO.addActor(actor);
     }
 }

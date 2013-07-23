@@ -19,9 +19,9 @@ public class Training {
     }
 
     @RequestMapping(value="/actor", method = RequestMethod.POST)
-    public String postMethod(@RequestBody Movie json, ModelMap model) {
+    public String postMethod(@RequestBody Actor json, ModelMap model) {
 
-        String response = movieService.addMovie(json);
+        String response = movieService.addActor(json);
 
         model.addAttribute("message", response);
         return "response";

@@ -28,6 +28,7 @@ public class Actor {
 
     public Actor(){
 
+
     }
 
     public Long getId() {

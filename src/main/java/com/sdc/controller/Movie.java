@@ -36,6 +36,7 @@ public class Movie {
 
     public Movie(){
 
+
     }
 
     public Long getId() {
