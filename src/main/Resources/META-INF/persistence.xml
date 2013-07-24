@@ -11,12 +11,12 @@
 
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-        <class> com.sdc.controller.Movie </class>
-        <class> com.sdc.controller.Actor </class>
+        <class>com.sdc.controller.BackEntities.Movie</class>
+        <class>com.sdc.controller.BackEntities.ActorB</class>
 
         <properties>
 
-            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.show_sql" value="true"  />
 
         </properties>
 

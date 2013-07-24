@@ -1,5 +1,7 @@
 package com.sdc.controller;
 
+import com.sdc.controller.BackEntities.Movie;
+import com.sdc.controller.FrontEntities.ActorF;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -19,13 +21,21 @@ public class Training {
     }
 
     @RequestMapping(value="/actor", method = RequestMethod.POST)
-    public String postMethod(@RequestBody Actor json, ModelMap model) {
+    public String postMethod(@RequestBody ActorF json, ModelMap model) {
 
         String response = movieService.addActor(json);
 
         model.addAttribute("message", response);
         return "response";
     }
+
+
+
+
+
+
+
+
 
     /*
     @RequestMapping(method = RequestMethod.PUT)

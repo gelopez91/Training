@@ -1,6 +1,10 @@
-package com.sdc.controller;
+package com.sdc.controller.BackEntities;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -31,11 +35,10 @@ public class Movie {
     @Column(name="duration")
     private String duration;
 
-    @OneToMany(mappedBy="movie")
-    private Set<Actor> actors;
+    @OneToMany (cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy = "movie")
+    private Set<ActorB> actors = new HashSet<ActorB>();
 
     public Movie(){
-
 
     }
 
@@ -94,12 +97,12 @@ public class Movie {
         duration = newDuration;
     }
 
-    public Set<Actor> getActors(){
+    public Set<ActorB> getActors(){
         return actors;
     }
 
-    public void setActors(Set<Actor> newActors){
-        actors = newActors;
+    public void addActor(ActorB actor) {
+        actors.add(actor);
     }
 }
 

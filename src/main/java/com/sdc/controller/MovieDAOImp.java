@@ -1,5 +1,7 @@
 package com.sdc.controller;
 
+import com.sdc.controller.BackEntities.ActorB;
+import com.sdc.controller.BackEntities.Movie;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -26,7 +28,7 @@ public class MovieDAOImp implements MovieDAO {
     }
 
     @Transactional (propagation = Propagation.REQUIRED)
-    public String addActor(Actor actor){
+    public String addActor(ActorB actor){
         try {
             getEntityManager().persist(actor);
             return "Exito";

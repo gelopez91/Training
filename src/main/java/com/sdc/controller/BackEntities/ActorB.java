@@ -1,13 +1,14 @@
-package com.sdc.controller;
+package com.sdc.controller.BackEntities;
 
 
+import org.codehaus.jackson.annotate.JsonBackReference;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="actor")
-public class Actor {
+public class ActorB {
 
     @Id
     @Column(name="actor_id")
@@ -21,13 +22,11 @@ public class Actor {
     @Column(name="lastName")
     private String lastName;
 
-    @ManyToOne (cascade={}, fetch=FetchType.LAZY)
-    @JoinColumn(name="movie_id")
-    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "movie_id")
     private Movie movie;
 
-    public Actor(){
-
+    public ActorB(){
 
     }
 
@@ -54,10 +53,12 @@ public class Actor {
         lastName = newLastName;
     }
 
+    @JsonIgnore
     public Movie getMovie(){
         return movie;
     }
 
+    @JsonIgnore
     public void setMovie(Movie newMovie){
         movie = newMovie;
     }

@@ -1,11 +1,11 @@
 package com.sdc.controller;
 
+import com.sdc.controller.BackEntities.Movie;
+import com.sdc.controller.FrontEntities.ActorF;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public interface MovieService {
     public Movie getMovie(Long id);
-    public String addActor(Actor actor);
+    public String addActor(ActorF actor);
 }
