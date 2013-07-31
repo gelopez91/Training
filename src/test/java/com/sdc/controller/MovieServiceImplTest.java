@@ -6,9 +6,8 @@ import junit.framework.TestCase;
 import com.sdc.controller.FrontEntities.ActorF;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -32,10 +31,16 @@ public class MovieServiceImplTest extends TestCase {
         actor.setLastName("Smith");
         actor.setMovie_id(1);
 
-        when(movieDAO.addActor(any(ActorB.class))).thenReturn("Exito");
+        ArgumentCaptor<ActorB> argumentCaptor = ArgumentCaptor.forClass(ActorB.class);
+
+        when(movieDAO.addActor(argumentCaptor.capture())).thenReturn("Exito");
 
         String response = movieService.addActor(actor);
 
+        ActorB a = argumentCaptor.getValue();
+
+        assertEquals("John", a.getFirstName());
+        assertEquals("Smith", a.getLastName());
         assertEquals("Exito", response);
     }
 
@@ -49,6 +54,5 @@ public class MovieServiceImplTest extends TestCase {
         Movie movie = movieService.getMovie(1);
 
         assertNotNull(movie.getName());
-
     }
 }
