@@ -17,6 +17,11 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
     </context-param>
+    <context-param>
+        <param-name>defaultMessage</param-name>
+        <param-value>A continuacion se muestra la informacion referente a una pelicula:</param-value>
+    </context-param>
+
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

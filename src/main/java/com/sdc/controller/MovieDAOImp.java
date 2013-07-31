@@ -22,9 +22,21 @@ public class MovieDAOImp implements MovieDAO {
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
+
     @Transactional
     public Movie getMovie(Long movieId) throws DataAccessException {
         return getEntityManager().find(Movie.class, movieId);
+    }
+
+    @Transactional
+    public int addMovie(Movie movie){
+        try {
+            getEntityManager().persist(movie);
+            return 1;
+        }
+        catch (Exception e){
+            return 0;
+        }
     }
 
     @Transactional (propagation = Propagation.REQUIRED)

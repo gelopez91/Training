@@ -1,7 +1,6 @@
 package com.sdc.controller.BackEntities;
 
 
-import org.codehaus.jackson.annotate.JsonBackReference;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
