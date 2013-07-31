@@ -24,7 +24,7 @@ public class MovieDAOImp implements MovieDAO {
     }
 
     @Transactional
-    public Movie getMovie(Long movieId) throws DataAccessException {
+    public Movie getMovie(int movieId) throws DataAccessException {
         return getEntityManager().find(Movie.class, movieId);
     }
 

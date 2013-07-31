@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface MovieService {
-    public Movie getMovie(Long id);
+    public Movie getMovie(int id);
     public int addMovie(Movie movie);
     public String addActor(ActorF actor);
 }

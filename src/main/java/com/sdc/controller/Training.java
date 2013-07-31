@@ -49,7 +49,7 @@ public class Training {
     }
 
     @RequestMapping(value="/movie/{movieId}", method = RequestMethod.GET)
-    public String getMovieByID(@PathVariable Long movieId, ModelMap model,
+    public String getMovieByID(@PathVariable int movieId, ModelMap model,
                                HttpServletResponse response) {
 
         model.addAttribute("message", movieService.getMovie(movieId));
