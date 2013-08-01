@@ -65,10 +65,10 @@
     </tr>
     <tr>
         <td colspan="2">
-            <input type="submit" value="Crear sin AJAX" />
+            <input id="submit" type="submit" value="Crear sin AJAX" />
         </td>
         <td>
-            <input type="button" value="Crear con AJAX" onclick="f();" />
+            <input id="button" type="button" value="Crear con AJAX" onclick="f();" />
         </td>
     </tr>
 </table>

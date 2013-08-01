@@ -13,14 +13,6 @@ public class MovieServiceImpl implements MovieService {
     @Autowired
     private MovieDAO movieDAO;
 
-    public MovieDAO getMovieDAO() {
-        return movieDAO;
-    }
-
-    public void setMovieDAO(MovieDAO movieDAO) {
-        this.movieDAO = movieDAO;
-    }
-
     @Transactional
     public Movie getMovie(int id) {
         return movieDAO.getMovie(id);
@@ -38,5 +30,13 @@ public class MovieServiceImpl implements MovieService {
         a.setLastName(actor.getLastName());
         a.setMovie(movieDAO.getMovie(actor.getMovie_id()));
         return movieDAO.addActor(a);
+    }
+
+    public MovieDAO getMovieDAO() {
+        return movieDAO;
+    }
+
+    public void setMovieDAO(MovieDAO movieDAO) {
+        this.movieDAO = movieDAO;
     }
 }
